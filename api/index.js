@@ -20,16 +20,12 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/database/db.js');
 
+const PORT = 3001;
+
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(PORT, () => {
     // coneccion con la base de datos
-    try {
-      await conn.authenticate();
-      console.log('Connection has been established successfully.');
-    } catch (error) {
-      console.error('Unable to connect to the database:', error);
-    }
-  });
-});
+    console.log(`Conexion establecidad y habilitada en el puerto: ${PORT}`); // eslint-disable-line no-console
+  }); 
+}).catch(error => console.error('Unable to connect to the database:', error));

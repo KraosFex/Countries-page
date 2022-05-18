@@ -23,7 +23,7 @@ const { conn } = require('./src/database/db.js');
 const PORT = 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(PORT, () => {
     // coneccion con la base de datos
     console.log(`Conexion establecidad y habilitada en el puerto: ${PORT}`); // eslint-disable-line no-console

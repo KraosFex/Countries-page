@@ -1,13 +1,11 @@
-const { Router } = require('express');
-
-
-const router = Router();
+const express = require('express');
+const router = express.Router();
 
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const Countries = require("./Countries.js");
-// const Sightseeing = require("./Sightseeing.js");
+const Activities = require("./Activities");
 
 
 
@@ -15,8 +13,8 @@ const Countries = require("./Countries.js");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use("/", Countries);
-// router.use("/", Sightseeing);
+router.use("/api/", Countries);
+router.use("/api/", Activities);
 
 
 module.exports = router;

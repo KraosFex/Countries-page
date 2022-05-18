@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 
-// require('./database/db.js'); // <-- Esta linea no comprendo para que sirve, pero la dejare ahi pos ahora
+require('./database/db.js');
 
 const server = express();
 

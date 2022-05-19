@@ -1,9 +1,10 @@
 import './App.css';
+import FristComponent from './components/FirtsComponet.jsx'
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <FristComponent />
     </div>
   );
 }

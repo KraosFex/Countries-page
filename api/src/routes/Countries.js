@@ -14,7 +14,7 @@ router.get("/countries", async (req, res) => {
     try{
         // Se llama a la base de datos && a la api
         const { name } = req.query;
-        let allCountries = await Country.findAll({ include : Activity })
+        let allCountries = await Country.findAll({ include : {model: Activity} })
         const allApiCountries = await axios.get("https://restcountries.com/v3/all")    
         
         // En caso de que la abase de datos este vacia, se cargara la base de datos con
@@ -37,7 +37,7 @@ router.get("/countries", async (req, res) => {
                                         name: c.name.common.toLowerCase(),
                                         flag: c.flags[0],
                                         continent: c.continents[0],
-                                        // capital: c.capital.length ? c.capital[0] : 'has no capital',
+                                        capital: c.capital === undefined ? "has not capital" : c.capital[0],
                                         subregion: c.subregion,
                                         area: Number(c.area),
                                         population: Number(c.population)

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Import los components
-
+import Carrusel from "../carrusel/Carrusel";
 
 
 // Importamos los stilos:
@@ -15,10 +15,7 @@ const Landing = () => {
         <div className="landingPage">
             <h1> Hello, are you wants see countries?</h1>
             <button className="btn__Home"> <Link to="/home" > got to home </Link> </button> 
-
-            <div>
-                <label> Aqui va un carrucel con react </label>
-            </div>
+            {/* <Carrusel /> */}
         </div>
     )
 }

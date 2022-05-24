@@ -1,12 +1,15 @@
 import {
     GET_COUNTRIES,
-    SEARCH_COUNTRY
+    SEARCH_COUNTRY,
+    FILTER_BY_CONTINENT
 } from "../actions/Types/ACTIONS_TYPES"
 
 
 const initialState = {
     countries:[],
-    detail:{}
+    activities : [],
+    countryDetail: {},
+    continent: "",
 }
 
 const allCountries = (state = initialState, action) => {
@@ -14,12 +17,17 @@ const allCountries = (state = initialState, action) => {
         case GET_COUNTRIES:
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
             }
         case SEARCH_COUNTRY: 
             return {
                 ...state,
-                detail: action.payload
+                countryDetail: action.payload,
+            }
+        case FILTER_BY_CONTINENT:
+            return {
+                ...state,
+                continent: action.payload,
             }
     
         default:

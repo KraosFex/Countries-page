@@ -5,3 +5,10 @@
     flex-wrap: wrap;
 
 }
+
+.listPages {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+}

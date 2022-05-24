@@ -6,7 +6,7 @@ import { Provider } from "react-redux"
 // Importamos los componentes necesarios:
 import Landing from "../landingPage/Landing"
 import Home from "../home/Home"
-//import Countries from "../countries/Countries"
+import DetailCountry from "../detailCountry/DetailCountry";
 
 
 // import the store
@@ -25,6 +25,7 @@ const App = () => {
                 <Routes>
                     <Route exact path='/' element={<Landing />} />
                     <Route path='/home' element={<Home />} />
+                    <Route path="/countri/:id" element={<DetailCountry />} />
                 </Routes>
             </Router>
         </Provider> 

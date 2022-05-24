@@ -12,13 +12,12 @@ const SmartSearch = () => {
 
     const dispatch = useDispatch()
     
-    const handleChange = e =>{
-        setInput(() => e.target.value);
-    }
+    const handleChange = e => setInput(() => e.target.value);
 
     const handleSubmit = e => {
-        e.preventDeafault();
+        e.preventDefault();
         dispatch(searchCountry(input));
+        console.log("cargando...")
         setInput(() => '');
     }
 

@@ -10,13 +10,12 @@ import SmartSearch from "../../smartComponents/smartSearch/SmartSearch";
 // exportamos los estilos css
 import "./Menu.css"
 
-// [ ] Input de búsqueda para encontrar países por nombre
-/* el smartSearch ya funciona bien, pero flata que devuelve el resultado de su consulta */
+//     [X] Input de búsqueda para encontrar países por nombre
+//     [ ] Botones/Opciones para filtrar por continente y por tipo de actividad turística
+//     [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
+//     [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
 
 const Menu = () => {
-
-    const countryDetails = useSelector(state => state.detail)
-
 
     return(
         <div>
@@ -24,9 +23,9 @@ const Menu = () => {
                 <div className="logo">
                     <h1>Henry Tour</h1>
                 </div>
-                <ul>
-                    <li><Link to="/abouts"> Abouts </Link></li>
-                </ul>
+                <div>
+                    <button>filter</button>
+                </div>
                 <div>
                     <h2> Este es la barra de menu: <SmartSearch /> </h2>
                 </div>

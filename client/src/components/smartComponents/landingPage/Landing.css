@@ -1,0 +1,18 @@
+.landingPage {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__Home {
+    width: 180px;
+    height: 45px;
+
+    background: #0a77a0;
+
+    border-radius: 7px;
+
+}

@@ -1,7 +1,9 @@
 import { combineReducers } from "redux"
 
-import reducerInicial from "./getCountries"
+import allCountries from "./getCountries"
 
-const rootReducer = combineReducers(reducerInicial);
+const rootReducer = combineReducers({
+    countries:allCountries
+});
 
 export default rootReducer;

@@ -1,15 +1,32 @@
-import {GET_COUNTRIES} from "./types/ACTIONS_TYPES";
+import axios from "axios"
 
-import allCountries from "../test.back"
+import { GET_COUNTRIES,
+         SEARCH_COUNTRY} from "./Types/ACTIONS_TYPES";
 
-const getCountries = () => {
-    return{
+
+
+export const getCountries = () => async dispatch => {
+   try{
+    const allCountries = await axios.get(`http://localhost:3001/api/countries`)
+    dispatch({
         type:GET_COUNTRIES,
-        payload: allCountries
+        payload:allCountries.data
+    })
+   } catch(err){
+       console.log(err)
+   }
+}
+
+export const searchCountry = (input) => async dispatch => {
+    try {
+        const country = await axios.get(`http://localhost:3001/api/countries?name=${input}`)
+        dispatch({
+            type:SEARCH_COUNTRY,
+            payload: country.data
+        })
+    } catch(err){
+        console.log(err)
     }
-
 }
 
-export default {
-    getCountries,
-}
+

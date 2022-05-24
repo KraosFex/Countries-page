@@ -1,0 +1,29 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 250px;
+    height: 350px;
+
+    margin: 25px;
+
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 2.5%;
+
+    background: #778567;
+
+}
+
+.flagCountry {
+    width: 100px;
+    height: 75px;
+}
+
+.basicInfo{
+    font-size: 14px;
+    text-align: center;
+}

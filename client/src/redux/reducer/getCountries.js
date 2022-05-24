@@ -1,18 +1,25 @@
 import {
-    GET_COUNTRIES
+    GET_COUNTRIES,
+    SEARCH_COUNTRY
 } from "../actions/Types/ACTIONS_TYPES"
 
 
 const initialState = {
-    countries:[], 
+    countries:[],
+    detail:{}
 }
 
-const reducerInicial = (state = initialState, action) => {
+const allCountries = (state = initialState, action) => {
     switch (action.type) {
         case GET_COUNTRIES:
-            return Object.assign, state, {
+            return {
                 ...state,
                 countries: action.payload
+            }
+        case SEARCH_COUNTRY: 
+            return {
+                ...state,
+                detail: action.payload
             }
     
         default:
@@ -21,4 +28,4 @@ const reducerInicial = (state = initialState, action) => {
 
 }
 
-export default reducerInicial;
+export default allCountries;

@@ -1,4 +1,8 @@
 // import stilos
+import Filter from "../../smartComponents/filter/Filter";
+import Order from "../../smartComponents/order/Order";
+
+// styles
 import "./CountriesContainer.css"
 
 const CountriesContainer = ({ contries, listPages }) => {
@@ -7,6 +11,8 @@ const CountriesContainer = ({ contries, listPages }) => {
             <div>
                 <ul className="listPages"> 
                     { listPages } 
+                    <Filter />
+                    <Order />
                 </ul>
             </div>
             <div className="containerCountries">

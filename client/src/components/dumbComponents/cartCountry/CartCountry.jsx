@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./CartCountry.css"
 
 
-const CartCountry = ({ name, flag, continent }) => {
+const CartCountry = ({ id, name, flag, continent }) => {
     return(
         <div className="cart">
             <div >
@@ -16,7 +16,7 @@ const CartCountry = ({ name, flag, continent }) => {
                 <h3> {name} </h3>
                 <label> {continent} </label>
                 <div>
-                    <span> <Link to="/countri/:id"> Detail of Country </Link> </span>
+                    <span> <Link to={`/countri/${id}`}> Detail of Country </Link> </span>
                 </div>
             </div>
             

@@ -2,3 +2,24 @@
     border-bottom: "solid 1px";
     padding-bottom: "1rem";
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    
+}
+
+.logo {
+    box-sizing: border-box;
+    padding: 10px;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+    border: solid 2px #000000;
+
+    background: #fac300;
+}

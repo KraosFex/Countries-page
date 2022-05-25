@@ -1,8 +1,12 @@
 import axios from "axios"
 
-import { GET_COUNTRIES,
-         SEARCH_COUNTRY,
-         FILTER_BY_CONTINENT} from "./Types/ACTIONS_TYPES";
+import { 
+        GET_COUNTRIES,
+        GET_DETAIL,
+        SEARCH_COUNTRY,
+        FILTER_BY_CONTINENT,
+        ORDER_BY_NAME,
+        } from "./Types/ACTIONS_TYPES";
 
 
 
@@ -30,11 +34,30 @@ export const searchCountry = input => async dispatch => {
     }
 }
 
+export const getDetail = id => async dispatch => {
+    try{
+        const country = await axios.get(`http://localhost:3001/api/countries/${id}`)
+        dispatch({
+            type: GET_DETAIL,
+            payload:country.data,
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+
 
 export const filterByContinent = (continent) => {
     return{
         type:FILTER_BY_CONTINENT,
         payload: continent,
+    }
+}
+
+export const orderByName = (order) => {
+    return{
+        type: ORDER_BY_NAME,
+        payload: order,
     }
 }
 

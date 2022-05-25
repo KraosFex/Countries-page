@@ -1,33 +1,53 @@
-const Country = ( {id, name, flag, continent, capital, subregion, area, population, Activities } ) => {
+import { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { useParams, Link } from "react-router-dom"
+
+import { getDetail } from "../../../redux/actions/Actions"
+
+const Country = () => {
+    const { id } = useParams()
+    const dispatch = useDispatch()
+
+    useEffect(() => dispatch(getDetail(id)), [dispatch])
+
+    	// getCountries strore
+	const allStore = useSelector(state => state.countries)
+
+    // States
+    const detailOfcountry = allStore.countryDetail;
+
     return (
         <div>
             <div>
-                <img src={ flag } alt="bandera"/>
+                <button>
+                    <Link to="/home">  Retur to home </Link>
+                </button>
             </div>
             <div>
-                <h3>{ name }</h3>
+                <img src={ detailOfcountry.flag } alt="bandera"/>
+            </div>
+            <div>
+                <h3>{ detailOfcountry.name }</h3>
                 <div>
                     <label>{ id }</label>
                     <br />
-                    <label>{ continent }</label>
+                    <label>{ detailOfcountry.continent }</label>
                     <br />
-                    <label> capital: { capital }</label>
+                    <label> capital: { detailOfcountry.capital }</label>
                 </div>
                 <div>
-                    <label> subregion: {subregion}</label>
+                    <label> subregion: { detailOfcountry.subregion }</label>
                     <br />
-                    <label> area: {area}</label>
+                    <label> area: {detailOfcountry.area}</label>
                     <br />
-                    <label> population: {population} </label>
+                    <label> population: {detailOfcountry.population} </label>
                     <br />
                 </div>
                 <div>
-                    Activities: {Activities}
-                </div>
+                    Activities: {detailOfcountry.Activities}
+                </div> 
             </div>
-
-
-
+        
         </div>
     )
 }

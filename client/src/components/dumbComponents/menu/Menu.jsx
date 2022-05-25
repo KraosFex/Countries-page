@@ -20,14 +20,13 @@ const Menu = () => {
     return(
         <div>
             <nav className="navEstyle">
-                <div className="logo">
-                    <h1>Henry Tour</h1>
-                </div>
-                <div>
-                    <button>filter</button>
-                </div>
-                <div>
-                    <h2> Este es la barra de menu: <SmartSearch /> </h2>
+                <div className="content">
+
+                    <div className="logo">
+                        <h1>Henry Tour</h1>
+                    </div>
+                    <SmartSearch />
+
                 </div>
             </nav>
             <Outlet />

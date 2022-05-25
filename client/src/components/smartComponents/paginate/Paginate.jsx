@@ -8,15 +8,12 @@ import { getCountries } from "../../../redux/actions/Actions"
 // import components
 import CountriesContainer from "../../dumbComponents/countriesContainer/CountriesContainer";
 import CartCountry from "../../dumbComponents/cartCountry/CartCountry";
-import Country from "../../dumbComponents/country/Country"
 import Loading from "../../dumbComponents/loading/Loading";
 
 const Paginate = () => {  
     const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(getCountries())
-	}, [dispatch])
+	useEffect(() => dispatch(getCountries()), [dispatch])
 
 
 	// getCountries strore
@@ -24,7 +21,7 @@ const Paginate = () => {
 
     // States
     const allcountries = allStore.countries;
-    const detailOfcountry = allStore.countryDetail;
+    const detailOfcountry = allStore.country;
     const filterContinent = allStore.continent;
 
 	// logic for the pagination  of the countries
@@ -35,37 +32,22 @@ const Paginate = () => {
 
 	const firstCountries = lastCountries - countriesPage;
     
-    // const currentCountries = allcountries.map(c => { 
-	// 	return(<CartCountry 
-    //                 key={c.id} 
-    //                 name={c.name} 
-    //                 flag={c.flag}
-    //                 continent={c.continent}
-    //                 />)}).slice(firstCountries, lastCountries)
-
+    
                     
-                        const currentCountries = allcountries.map(c => { 
-                            if(filterContinent !== "" ) {
-                                if(filterContinent === c.continent) {
-                                    return <CartCountry key={c.id} name={c.name} flag={c.flag} continent={c.continent}/>
-                                }
-                            } else {
-                                return <CartCountry key={c.id} name={c.name} flag={c.flag} continent={c.continent}/>
-                            } 
-                        }).slice(firstCountries, lastCountries) 
-                           
-                        
-                       
+    const currentCountries = filterContinent ? allcountries.filter(c => c.continent === filterContinent)
+                                                .map(c => <CartCountry key={c.id} id={c.id} name={c.name} flag={c.flag} continent={c.continent}/>) :
+                                                allcountries.map(c => <CartCountry key={c.id} id={c.id} name={c.name} flag={c.flag} continent={c.continent}/>)
+               
+    const current = currentCountries.slice(firstCountries, lastCountries)
+                             
 	const paginate = (pageNum) => {
 		setCurrentPage(pageNum);
 		pageNum === 1 ? setCountriesPage(9) : setCountriesPage(10)
 	}
 	
-	const numbersPage = []
+	const numbersPage = [];
 
-    for (let i = 1; i <= Math.ceil(allcountries.length/10); i++){
-        numbersPage.push(i)
-    }
+    for (let i = 1; i <= Math.ceil(currentCountries.length/10); i++) { numbersPage.push(i) }
 
     const listPages = numbersPage.map(num => {
        return(
@@ -78,17 +60,8 @@ const Paginate = () => {
     
 
     return <> {detailOfcountry.name === undefined ? 
-                    (allcountries.length ? <CountriesContainer contries={currentCountries} listPages={listPages} /> : <Loading />) 
-                    :  <Country 
-                            id={detailOfcountry.id}
-                            name={detailOfcountry.name} 
-                            flag={detailOfcountry.flag} 
-                            continent={detailOfcountry.continent} 
-                            capital={detailOfcountry.capital} 
-                            subregion={detailOfcountry.subregion} 
-                            area={detailOfcountry.area} 
-                            population={detailOfcountry.population} 
-                            Activities={detailOfcountry.Activities}/> }
+                    (allcountries.length ? <CountriesContainer contries={current} listPages={listPages} /> : <Loading />) 
+                    :  <CartCountry id={detailOfcountry.id} name={detailOfcountry.name} flag={detailOfcountry.flag} continent={detailOfcountry.continent} /> }
             </>
 }
 

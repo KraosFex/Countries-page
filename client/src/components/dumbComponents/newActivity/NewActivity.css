@@ -1,0 +1,88 @@
+.countryForm{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: 100vh;
+    
+    background: rgb(131,58,180);
+    background: linear-gradient(78deg, rgba(131,58,180,1) 0%, rgba(158,153,161,0.43599446614583337) 0%);
+}
+
+.preventStyle {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 80vw;
+
+}
+
+.contentInput {
+    margin: 9px;
+}
+
+.textCistom {
+    width: 450px;
+    height: 20px;
+
+    margin: 3px;
+    padding: 3px;
+
+    background: none;
+    border: none;
+    border-bottom: solid 1px #777;
+}
+
+.selectedCustom {
+    width: 450px;
+    height: 30px;
+
+    padding: 3px;
+    
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    
+    color: #f5f6fa;
+    position: relative;
+  
+    order: 0;
+
+}
+
+.contentButton {
+    align-self: flex-end;
+}
+
+
+.buttonCustom {
+    width: 150px;
+    height: 35px;
+
+    margin: 20px;
+
+    background: #2f3640;
+
+    border-radius: 5px;
+    border: none;
+
+    color: #ffffff;
+
+    transition: .3s;
+}
+
+.buttonCustom:hover {
+    background: #4f3b4f;
+    box-shadow: 2px 2px 2px #999999;
+}
+
+.buttonCustom:active {
+    background: #2b2c4f;
+    box-shadow: none;
+
+}

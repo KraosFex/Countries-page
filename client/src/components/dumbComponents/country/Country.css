@@ -1,0 +1,79 @@
+.countryContainer{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgb(131,58,180);
+    background: linear-gradient(78deg, rgba(131,58,180,1) 0%, rgba(158,153,161,0.43599446614583337) 0%);
+}
+
+.containesFlag {
+    width: 700px;
+    height: 500px;
+    margin-right: 15px;
+}
+
+.flagImg{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+    box-shadow: -2px 2px 10px #000000;
+}
+
+.detailInfo {
+    height: 20vh;
+
+    padding: 10px;
+}
+
+.titel {
+    margin-bottom: 17px;
+    border-bottom: solid 1px #77777750;
+}
+
+.detailInfo_Name {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.divActivities {
+    padding: 12px;
+}
+
+.listStile{
+    margin-left: 27px;
+    list-style: square;
+}
+
+.buttonReturn {
+    width: 150px;
+    height: 35px;
+
+    margin: 20px;
+
+    background: #2f3640;
+
+    border-radius: 5px;
+    border: none;
+
+    color: #ffffff;
+
+    transition: .3s;
+}
+
+.buttonReturn:hover {
+    background: #4f3b4f;
+    box-shadow: 2px 2px 2px #999999;
+}
+
+.buttonReturn:active {
+    background: #2b2c4f;
+    box-shadow: none;
+
+}

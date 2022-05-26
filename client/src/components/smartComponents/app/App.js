@@ -4,16 +4,16 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from "react-redux"
 
 // Importamos los componentes necesarios:
-import Landing from "../landingPage/Landing"
-import Home from "../home/Home"
-import Country from "../../dumbComponents/country/Country";
-
+import Landing from "../../dumbComponents/landingPage/Landing"
+import Home from "../../dumbComponents/home/Home"
+import DetailCountry from "../detailCountry/DetailCountry";
+import CreateActivity from "../createActivity/CreateActivity";
 
 // import the store
 import generateStore from '../../../redux/store/store';
 
-// Importamos los stilos:
-import './App.css';
+// import stiles
+import "./App.css"
 
 const App = () => {
 
@@ -25,7 +25,8 @@ const App = () => {
                 <Routes>
                     <Route exact path='/' element={<Landing />} />
                     <Route path='/home' element={<Home />} />
-                    <Route path="/countri/:id" element={<Country />} />
+                    <Route path="/countri/:id" element={<DetailCountry />} />
+                    <Route path="/activity" element={<CreateActivity />} />
                 </Routes>
             </Router>
         </Provider> 

@@ -1,19 +1,23 @@
 // import stilos
-import Filter from "../../smartComponents/filter/Filter";
-import Order from "../../smartComponents/order/Order";
+import Filter from "../filter/Filter";
+import Order from "../order/Order";
 
 // styles
 import "./CountriesContainer.css"
 
-const CountriesContainer = ({ contries, listPages }) => {
+const CountriesContainer = ({ 
+                        contries, 
+                        listPages, 
+                        onSelectChange,
+                        options }) => {
     return(
-        <div>
-            <div>
+        <div className="ContainerPaginate">
+            <div className="countainefilters">
                 <ul className="listPages"> 
                     { listPages } 
-                    <Filter />
-                    <Order />
                 </ul>
+                <Filter onSelectChange={onSelectChange} options={options} />
+                <Order onSelectChange={onSelectChange}/>
             </div>
             <div className="containerCountries">
                 { contries }

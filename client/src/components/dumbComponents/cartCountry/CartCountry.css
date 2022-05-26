@@ -9,21 +9,72 @@
 
     margin: 25px;
 
-    border: 2px;
-    border-style: solid;
-    border-color: black;
+    border: 2px solid black;
     border-radius: 2.5%;
 
-    background: #778567;
+    background: rgb(131,58,180);
+    background: linear-gradient(117deg, rgba(131,58,180,1) 0%, rgba(158,153,161,0.43599446614583337) 0%); 
+    
 
+}
+
+.contentFlag {
+    margin: 0;
+    padding: -65px;
+    width: 80%;
+    height: 40%;
 }
 
 .flagCountry {
-    width: 100px;
-    height: 75px;
+    width: 100%;
+    height: 100%;
 }
 
 .basicInfo{
-    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+    height: 50%;
+
+    font-size: 16px;
+}
+
+.nameCountry {
+    margin: 12px;
+    
+    font-size: 16px;
     text-align: center;
+}
+
+.containerbuttonCart {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 5px;
+}
+
+.buttonCart {
+    width: 150px;
+    height: 30px;
+
+    margin: 10px;
+
+    color: #fff;
+    border: none;
+
+    border-radius: 5px;
+    background: #2f3640;
+
+    align-self: center;
+
+    transition: .1s;
+}
+
+.buttonCart:hover {
+    background: #4f3b4f;
+}
+
+.buttonCart:active {
+    background: #ffffff;
 }

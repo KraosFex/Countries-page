@@ -1,8 +1,8 @@
+import "./Loading.css"
+
 const Loading = () => {
     return (
-        <div>   
-            <h2> Cargando... </h2>
-        </div>
+        <div className="spinner" />
     )
 }
 

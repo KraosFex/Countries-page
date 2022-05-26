@@ -1,0 +1,68 @@
+.containerCarousel {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.goToHomeDiv{
+    justify-self: center;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 200px;
+}
+
+.logoWelcom {
+    align-self: flex-start;
+
+    width: 35%;
+    
+    margin-left: 10px;
+    padding: 5px;
+    
+    font-size: 23.5px;
+    text-align: center;
+    color: #000;
+    
+}
+
+.goToHomeDiv h2 {
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.buttonCustomHome {
+    width: 350px;
+    height: 45px;
+
+    margin: 25px;
+
+    background: #2f3640;
+
+    border-radius: 20px;
+    border: none;
+
+    box-shadow: 2px 2px 5px #000000,
+                    2px 2px 5px #000000;
+
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+
+    transition: .3s;
+}
+
+.buttonCustomHome:hover {
+    background: #4f3b4f;
+}
+
+.buttonCustomHome:active {
+    background: #2b2c4f;
+    box-shadow: none;
+
+}

@@ -1,8 +1,13 @@
+// Geters
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const SEARCH_COUNTRY = "SEARCH_COUNTRY";
 export const GET_DETAIL = "GET_DETAIL";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
+
+// Seters
 export const POST_ACTIVITIES = "POST_ACTIVITIES";
+
+// Filters
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";

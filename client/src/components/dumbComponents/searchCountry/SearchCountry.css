@@ -1,0 +1,43 @@
+.form {
+    align-self: center;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    width: 40%;
+    height: 100%;
+
+    margin: 20px;
+
+}
+
+.form_text {
+    width: 65%;
+    height: 30%;
+    margin-top: 5%;
+    border: none;
+    background: #eee;
+    font-size: 18px;
+    color: #111;
+    transition: 0.5s;
+}
+
+.form_text:active {
+    border-bottom: solid 2px #777;
+}
+
+.form_submit {
+    width: 30%;
+
+    border: none;
+    background: #ddd;
+
+    transition: .1s;
+}
+
+.form_submit:hover {
+    background: #2f3640;
+    color: #0af;
+    border-bottom: solid 4px #0af;
+}

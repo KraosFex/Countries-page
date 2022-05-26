@@ -1,6 +1,5 @@
 // Import dependencies
-import { Outlet, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Outlet, NavLink } from "react-router-dom";
 
 // Import components
 import SmartSearch from "../../smartComponents/smartSearch/SmartSearch";
@@ -10,24 +9,21 @@ import SmartSearch from "../../smartComponents/smartSearch/SmartSearch";
 // exportamos los estilos css
 import "./Menu.css"
 
-//     [X] Input de búsqueda para encontrar países por nombre
-//     [ ] Botones/Opciones para filtrar por continente y por tipo de actividad turística
-//     [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los países por orden alfabético y por cantidad de población
-//     [ ] Paginado para ir buscando y mostrando los siguientes paises, 10 paises por pagina, mostrando los primeros 9 en la primer pagina.
+//     [ ] Botones/Opciones por tipo de actividad turística
+
+
 
 const Menu = () => {
 
     return(
-        <div>
+        <div className="content">
+            <div className="logo">
+                <h1>{"&Travel."}</h1>
+            </div>
             <nav className="navEstyle">
-                <div className="content">
-
-                    <div className="logo">
-                        <h1>Henry Tour</h1>
-                    </div>
+                    <button className="btn__Active"> home </button>
+                    <NavLink to="/activity"><button className="btn"> Create Activity </button></NavLink>
                     <SmartSearch />
-
-                </div>
             </nav>
             <Outlet />
         </div>

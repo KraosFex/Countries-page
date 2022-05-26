@@ -1,51 +1,38 @@
-import { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { useParams, Link } from "react-router-dom"
+// import modules
+import { Link } from "react-router-dom";
 
-import { getDetail } from "../../../redux/actions/Actions"
+// import Details
+import "./Country.css"
 
-const Country = () => {
-    const { id } = useParams()
-    const dispatch = useDispatch()
-
-    useEffect(() => dispatch(getDetail(id)), [dispatch])
-
-    	// getCountries strore
-	const allStore = useSelector(state => state.countries)
-
-    // States
-    const detailOfcountry = allStore.countryDetail;
+const Country = ( {flag, name, id, continent, capital, area, subregion, population, Activities} ) => {
 
     return (
-        <div>
-            <div>
-                <button>
-                    <Link to="/home">  Retur to home </Link>
-                </button>
+        <div className="countryContainer">
+            <div className="containesFlag" >
+                <img className="flagImg" src={ flag } alt="bandera"/>
             </div>
-            <div>
-                <img src={ detailOfcountry.flag } alt="bandera"/>
-            </div>
-            <div>
-                <h3>{ detailOfcountry.name }</h3>
-                <div>
-                    <label>{ id }</label>
-                    <br />
-                    <label>{ detailOfcountry.continent }</label>
-                    <br />
-                    <label> capital: { detailOfcountry.capital }</label>
+            <div className="detailInfo">
+                <div className="titel">
+                    <label className="detailInfo_Name">{ name } </label>
+                    <label>({ id })</label>
                 </div>
                 <div>
-                    <label> subregion: { detailOfcountry.subregion }</label>
+                    <label> continent: { continent } /</label>
+                    <label> capital: { capital } /</label>
+                    <label> area: {area} / </label>
+                    <label> subregion: { subregion }</label>
                     <br />
-                    <label> area: {detailOfcountry.area}</label>
-                    <br />
-                    <label> population: {detailOfcountry.population} </label>
-                    <br />
+                    <label> population: {population} </label>
                 </div>
-                <div>
-                    Activities: {detailOfcountry.Activities}
+                <div className="divActivities">
+                    Activities: 
+                    <ul>
+                        {Activities}
+                    </ul>
                 </div> 
+            <div>
+                <Link to="/home"> <button className="buttonReturn" > {"< Retur to home"} </button> </Link>
+            </div>
             </div>
         
         </div>

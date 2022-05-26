@@ -1,9 +1,13 @@
 import { combineReducers } from "redux"
 
-import allCountries from "./getCountries"
+import getCountries from "./getCountries"
+import filters from "./filters";
+import activitys from "./activitys";
 
 const rootReducer = combineReducers({
-    countries:allCountries
+    countries: getCountries,
+    filters: filters,
+    activitys: activitys
 });
 
 export default rootReducer;

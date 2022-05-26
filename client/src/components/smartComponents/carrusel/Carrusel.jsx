@@ -1,31 +1,45 @@
 import { useState, useEffect } from "react";
 
+// import stiles
+import "./Carrusel.css"
+
 const Carrusel = () => {
 
-    const images = ['carrusel_1.jpg', 'carrusel_2.jpg','carrusel_3.jpg']
+    const indexImg = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']
 
     const [selectedIndex , setSelectedIndex] = useState(0)
-    const [selectedImage, setSelectedImage] = useState(images[0])
+    const [selectedImage, setSelectedImage] = useState(indexImg[0])
 
-    const selectNextImage = (index, images, next = true) => {
-        const condition = next ? selectedIndex > 0 : selectedIndex < images.length;
-        const nextIndex = next ? (condition ? selectedIndex - 1 : images.length - 1) : ( condition ? selectedIndex + 1 : 0);
-        setSelectedImage(images[nextIndex]);
-        setSelectedIndex(nextIndex);
-    }
+    const [loaded, setLoaded] = useState(false)
 
-    const previus = () => {
-        selectNextImage(selectNextImage, images , false)
-    }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            selectNextImage(indexImg)
+        }, 3500 );
 
-    const next = () => {
-        selectNextImage(selectNextImage, images)
+        return () => clearInterval(interval)
+    })
+
+    const selectNextImage = (indexImg, next = true) => {
+        setLoaded(false)
+        setTimeout(() => {
+            const condition = next ? selectedIndex < indexImg.length - 1 : selectedIndex > 0;
+            const nextIndex = next ? (condition ? selectedIndex + 1 : 0) : (condition ? selectedIndex - 1 : indexImg.length - 1);
+            setSelectedImage(indexImg[nextIndex]);
+            setSelectedIndex(nextIndex);
+        }, 1400)
+        
     }
 
     return(
-        <>
-            <img src={require(`../../../../public/img/${selectedImage}`).default} alt="KraosFex" />
-        </>
+        <div>
+                <img 
+                    className={`carrucelImg ${loaded ? "loaded" : ""}`} 
+                    src={require(`../../../../public/img/carrusel_${selectedImage}.jpg`).default} 
+                    alt="KraosFex" 
+                    onLoad={() => setLoaded(true)}
+                />
+        </div>
     )
 }
 

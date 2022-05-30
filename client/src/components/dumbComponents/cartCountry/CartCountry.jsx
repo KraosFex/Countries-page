@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./CartCountry.css"
 
 
-const CartCountry = ({ id, name, flag, continent, population }) => {
+const CartCountry = ({ id, name, flag, continent, population, translateName }) => {
     return(
         <div className="cart">
             <div className="contentFlag">
@@ -17,7 +17,10 @@ const CartCountry = ({ id, name, flag, continent, population }) => {
                     <h3> {name} </h3>
                 </div>
                 <div className="info">
-                    <label> continent: {continent} </label>
+                    <label> {translateName} </label>
+                </div>
+                <div className="info">
+                    <label> {continent} </label>
                 </div>
                 <div className="info">
                     <span> population: {population} </span>

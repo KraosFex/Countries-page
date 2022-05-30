@@ -35,6 +35,7 @@ router.get("/countries", async (req, res) => {
                                     return {
                                         id: c.cca3,
                                         name: c.name.common.toLowerCase(),
+                                        translateName: c.translations.fin.official,
                                         flag: c.flags[0],
                                         continent: c.continents[0],
                                         capital: c.capital === undefined ? "has not capital" : c.capital[0],

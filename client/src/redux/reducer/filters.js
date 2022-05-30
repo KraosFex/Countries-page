@@ -1,17 +1,24 @@
 import {
     FILTER_BY_CONTINENT,
     ORDER_BY_NAME,
-    ORDER_BY_POPULATION
+    ORDER_BY_POPULATION,
+    SEARCHYNG
     } from "../actions/Types/ACTIONS_TYPES"
 
 
 const initialState = {
+            searching: false,
             order: "",
             continent: "",
         }
 
 const filters = (state = initialState, action) => {
     switch (action.type) {
+        case SEARCHYNG:
+            return {
+                ...state,
+                searching: action.payload
+            }
         case FILTER_BY_CONTINENT:
             if(action.payload !== "ALL"){
                 return {

@@ -5,9 +5,12 @@ import {
         GET_DETAIL,
         SEARCH_COUNTRY,
         POST_ACTIVITIES,
+        GET_ACTIVITIES,
+        PUT_ACTIVITY,
         FILTER_BY_CONTINENT,
         ORDER_BY_NAME,
-        ORDER_BY_POPULATION
+        ORDER_BY_POPULATION,
+        SEARCHYNG,
         } from "./Types/ACTIONS_TYPES";
 
 
@@ -20,7 +23,7 @@ export const getCountries = () => async dispatch => {
         payload:allCountries.data,
     })
    } catch(err){
-       console.log(err)
+       return alert(err)
    }
 }
 
@@ -32,7 +35,7 @@ export const searchCountry = input => async dispatch => {
             payload:country.data,
         })
     } catch(err){
-        console.log(err)
+        return alert(err)
     }
 }
 
@@ -44,7 +47,7 @@ export const getDetail = id => async dispatch => {
             payload:country.data,
         })
     }catch(err){
-        console.log(err)
+        return alert(err)
     }
 }
 
@@ -56,11 +59,44 @@ export const postActivities = payload => async dispatch =>{
             payload: json.data
         })
     }catch(err){
-        console.log(err)
+        return alert(err)
+    }
+}
+
+export const getActivities = () => async dispatch => {
+    try {
+        const activitys = await axios.get(`http://localhost:3001/api/activities`)
+        dispatch({
+            type: GET_ACTIVITIES,
+            payload: activitys.data
+        })
+    } catch(err) {
+        return alert(err)
+    }
+
+}
+
+export const putActivity = id => async dispatch => {
+    try {
+        const destroy = await axios.put(`http://localhost:3001/api/activities/${id}`)
+        dispatch({
+            type: PUT_ACTIVITY,
+            payload: destroy.data
+        })
+
+    } catch (err) {
+
     }
 }
 
 // sincone actions
+
+export const searching = boolean => {
+    return { 
+        type: SEARCHYNG,
+        payload: boolean
+    }
+}   
 
 export const filterByContinent = payload => {
     return{

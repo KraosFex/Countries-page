@@ -13,11 +13,13 @@ const CreateActivity = () => {
         difficulty: "",
         duration: "",
         season: "", 
-        nameCountry: ""  
+        nameCountry: "",  
     }
 
     const [form, setForm] = useState(initialForm);
     const [errors, setErrors] = useState({});
+
+    console.log( typeof form.nameCountry)
 
     const dispatch = useDispatch()
 
@@ -25,7 +27,6 @@ const CreateActivity = () => {
 
 	// States
 	const allcountries = useSelector(state => state.countries.countries)
-    const newAct = useSelector(state => state.activitys.newActivity)
 
     // validations 
     const validateForm = form => {
@@ -50,7 +51,7 @@ const CreateActivity = () => {
         if (name === form.nameCountry && form.nameCountry !== value ){
             setForm({
                 ...form,
-                [name]: value
+                nameCountry: value
             })
         }
         setForm({
@@ -92,7 +93,7 @@ const CreateActivity = () => {
     }
 
     // options for list countries
-    const listCounties = allcountries.map(c => <option key={c.id} name ={c.name} onBlur={e => handleBlur(e)} > {c.name}</option> ) 
+    const listCounties = allcountries.map(c => <option key={c.id} value={c.name}> {c.name}</option> ) 
         
     return (<NewActivity 
                 handleSubmit={handleSubmit}

@@ -46,6 +46,9 @@ module.exports = (sequelize) => {
     population:{
       type: DataTypes.INTEGER,
     },
+    translateName: {
+      type: DataTypes.STRING,
+    },
   },{
     charset:'utf8',
     collate:'utf8_general_ci',

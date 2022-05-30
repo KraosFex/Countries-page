@@ -1,0 +1,58 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: 100vh;
+    
+    background: rgb(131,58,180);
+    background: linear-gradient(78deg, rgba(131,58,180,1) 0%, rgba(158,153,161,0.43599446614583337) 0%);
+}
+
+.contentLinks {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonLink {
+    width: 150px;
+    height: 35px;
+
+    margin: 20px;
+
+    background: #2f3640;
+
+    border-radius: 5px;
+    border: none;
+
+    color: #ffffff;
+
+    transition: .3s;
+}
+
+.buttonLink:hover {
+    background: #4f3b4f;
+    box-shadow: 2px 2px 2px #999999;
+}
+
+.buttonLink:active {
+    background: #2b2c4f;
+    box-shadow: none;
+
+}
+
+.ActivitysContainer {
+    margin: 13px;
+}
+
+.ActivitysList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+}

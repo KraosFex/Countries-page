@@ -38,6 +38,8 @@
 
 .form_submit:hover {
     background: #2f3640;
-    color: #0af;
     border-bottom: solid 4px #0af;
+
+    font-weight: 700;
+    color: #0af;
 }

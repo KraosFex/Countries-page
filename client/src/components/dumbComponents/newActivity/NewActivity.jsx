@@ -14,7 +14,7 @@ const NewActivity = ({
         <div className="countryForm">
                         
             <div>
-                <NavLink to="/home"> <button className="buttonCustom"> {"< Retur to home"} </button> </NavLink>
+                <NavLink to="/activities"> <button className="buttonCustom"> {"< Retur"} </button> </NavLink>
             </div>
 
             <h2 >CREATE NEW ACTIVITY</h2>

@@ -1,4 +1,4 @@
-.content {
+.contentMenu {
     max-width: 100vw;
     width: 100%;
     height: 8vh;
@@ -58,8 +58,10 @@
 
 .btn:hover {
     background: #2f3640;
-    color: #0af;
     border-bottom: solid 4px #0af;
+    
+    font-weight: 700;
+    color: #0af;
 }
 
 .btn__Active {

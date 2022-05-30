@@ -7,7 +7,8 @@ import {
     getCountries, 
     filterByContinent,
     orderByName,
-    orderBypopulation
+    orderBypopulation,
+    searching
     } from "../../../redux/actions/Actions"
 
 // import components
@@ -25,7 +26,13 @@ const Paginate = () => {
 	const allcountries = useSelector(state => state.countries.countries)
     const detailOfcountry = useSelector(state => state.countries.country)
     const filterContinent = useSelector(state => state.filters.continent)
+    const searchCountry = useSelector(state => state.filters.searching)
     const filterOrder = useSelector(state => state.filters.order)
+
+    // Alert Searching detail country
+    if(detailOfcountry.name !== undefined && searchCountry === true) {
+        dispatch(searching(false))
+    }
 
     // Utils
     const onSelectChange = e => {
@@ -50,15 +57,15 @@ const Paginate = () => {
     filterOrder=== "ASCENDENT" ? allcountries.sort((a, b) => a.name.localeCompare(b.name)): 
         allcountries;
 
-    const sortCountries = filterOrder === "HIGHPOBLATION" ? allcountries.sort((a, b) => b.population - a.population): 
-    filterOrder === "LOWPOBLATION" ? allcountries.sort((a, b) => a.population - b.population): 
-        allcountries;
+    const sortCountries = filterOrder === "HIGHPOBLATION" ? sortCountriesByName.sort((a, b) => b.population - a.population): 
+    filterOrder === "LOWPOBLATION" ? sortCountriesByName.sort((a, b) => a.population - b.population): 
+    sortCountriesByName;
 
 
     // Map countries according to filter
-    const currentCountries = filterContinent !== "" ? allcountries.filter(c => c.continent === filterContinent)
-                        .map(c => <CartCountry key={c.id} id={c.id} name={c.name} flag={c.flag} continent={c.continent} population={c.population}/>)
-                        : allcountries.map(c => <CartCountry key={c.id} id={c.id} name={c.name} flag={c.flag} continent={c.continent} population={c.population}/>)
+    const currentCountries = filterContinent !== "" ? sortCountries.filter(c => c.continent === filterContinent)
+                        .map(c => <CartCountry key={c.id} id={c.id} name={c.name} translateName={c.translateName} flag={c.flag} continent={c.continent} population={c.population}/>)
+                        : allcountries.map(c => <CartCountry key={c.id} id={c.id} name={c.name} translateName={c.translateName} flag={c.flag} continent={c.continent} population={c.population}/>)
 
 	// logic for the pagination  of the countries
 
@@ -84,10 +91,20 @@ const Paginate = () => {
 
     const listPages = numbersPage.map( num => <li key={num}> <button className="buttonPaginate" onClick={() => paginate(num)}>{num}</button> </li> )
 
-    return <> {detailOfcountry.name === undefined ? 
+    return <> { searchCountry === true ? 
+                        <Loading /> : 
+                        detailOfcountry.name === undefined ? 
                     (sortCountries.length ? 
-                    <CountriesContainer contries={current} listPages={listPages} onSelectChange={onSelectChange} options={options} /> : <Loading />) 
-                    :  <CartCountry id={detailOfcountry.id} name={detailOfcountry.name} flag={detailOfcountry.flag} continent={detailOfcountry.continent} /> }
+                        <CountriesContainer contries={current} listPages={listPages} onSelectChange={onSelectChange} options={options} />:
+                        <Loading />) :
+                        <CartCountry 
+                            id={detailOfcountry.id} 
+                            name={detailOfcountry.name} 
+                            translateName={detailOfcountry.translateName}
+                            flag={detailOfcountry.flag} 
+                            continent={detailOfcountry.continent} 
+                            population={detailOfcountry.population}
+                            /> }
             </>
 }
 

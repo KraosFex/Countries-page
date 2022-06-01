@@ -17,7 +17,7 @@ import {
 // asincrones actions
 export const getCountries = () => async dispatch => {
    try{
-    const allCountries = await axios.get(`http://localhost:3001/api/countries`);
+    const allCountries = await axios.get(`/api/countries`);
     dispatch({
         type:GET_COUNTRIES,
         payload:allCountries.data,
@@ -29,7 +29,7 @@ export const getCountries = () => async dispatch => {
 
 export const searchCountry = input => async dispatch => {
     try {
-        const country = await axios.get(`http://localhost:3001/api/countries?name=${input}`);
+        const country = await axios.get(`/api/countries?name=${input}`);
         dispatch({
             type:SEARCH_COUNTRY,
             payload:country.data,
@@ -41,7 +41,7 @@ export const searchCountry = input => async dispatch => {
 
 export const getDetail = id => async dispatch => {
     try{
-        const country = await axios.get(`http://localhost:3001/api/countries/${id}`);
+        const country = await axios.get(`/api/countries/${id}`);
         dispatch({
             type: GET_DETAIL,
             payload:country.data,
@@ -53,7 +53,7 @@ export const getDetail = id => async dispatch => {
 
 export const postActivities = payload => async dispatch =>{
     try{
-        const json = await axios.post(`http://localhost:3001/api/activities`, payload);
+        const json = await axios.post(`/api/activities`, payload);
         dispatch({
             type: POST_ACTIVITIES,
             payload: json.data
@@ -65,7 +65,7 @@ export const postActivities = payload => async dispatch =>{
 
 export const getActivities = () => async dispatch => {
     try {
-        const activitys = await axios.get(`http://localhost:3001/api/activities`)
+        const activitys = await axios.get(`/api/activities`)
         dispatch({
             type: GET_ACTIVITIES,
             payload: activitys.data
@@ -78,7 +78,7 @@ export const getActivities = () => async dispatch => {
 
 export const putActivity = id => async dispatch => {
     try {
-        const destroy = await axios.put(`http://localhost:3001/api/activities/${id}`)
+        const destroy = await axios.put(`/api/activities/${id}`)
         dispatch({
             type: PUT_ACTIVITY,
             payload: destroy.data

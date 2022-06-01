@@ -23,7 +23,7 @@ const { PORT } = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(PORT, // <-- Rescuerda que esto es el puerto
+  server.listen(PORT, // <-- Remember  that this is the port
      () => {
     // coneccion con la base de datos
     console.log(`Conexion establecidad y habilitada en el puerto: ${PORT}`); // eslint-disable-line no-console

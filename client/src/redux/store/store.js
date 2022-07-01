@@ -1,5 +1,4 @@
 import { legacy_createStore, applyMiddleware, compose } from "redux"
-import thunk from "redux-thunk"
 
 // exporto el root reducer
 import rootReducer from "../reducer/index"

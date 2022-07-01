@@ -13,14 +13,16 @@ const CountriesContainer = ({
     return(
         <div className="ContainerPaginate">
             <div className="countainefilters">
-                <ul className="listPages"> 
-                    { listPages } 
-                </ul>
                 <Filter onSelectChange={onSelectChange} options={options} />
                 <Order onSelectChange={onSelectChange}/>
             </div>
             <div className="containerCountries">
                 { contries }
+            </div>
+            <div>
+                <ul className="listPages"> 
+                    { listPages } 
+                </ul>
             </div>
         </div>
     )

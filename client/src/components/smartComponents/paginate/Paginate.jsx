@@ -25,6 +25,7 @@ const Paginate = () => {
 	// States
 	const allcountries = useSelector(state => state.countries.countries)
     const detailOfcountry = useSelector(state => state.countries.country)
+    
     const filterContinent = useSelector(state => state.filters.continent)
     const searchCountry = useSelector(state => state.filters.searching)
     const filterOrder = useSelector(state => state.filters.order)
@@ -51,8 +52,6 @@ const Paginate = () => {
     }
 
     // logic for filtering countries according to the aphabet or its population
-
-
     const sortCountriesByName = filterOrder === "DESCENDENT" ? allcountries.sort((a, b) => b.name.localeCompare(a.name)): 
     filterOrder=== "ASCENDENT" ? allcountries.sort((a, b) => a.name.localeCompare(b.name)): 
         allcountries;
